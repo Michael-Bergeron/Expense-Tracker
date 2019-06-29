@@ -11,5 +11,5 @@ create table expense(
   id serial,
   cat_id int,
   expense varchar(255),
-  cost varchar(255)
+  cost Dec(10, 2)
 );

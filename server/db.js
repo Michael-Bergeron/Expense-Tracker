@@ -1,4 +1,4 @@
-const mysql = ('mysql');
+const mysql = require('mysql');
 
 const db = mysql.createConnection({
   user: 'root',
@@ -14,7 +14,11 @@ const getData = (cb) => {
 }
 
 const insertData = (newData, cb) => {
-  db.query('')
+  console.log(newData)
+  db.query(`insert into expense (expense, cost, cat_id) values ("${newData.body.expense}", ${newData.body.cost}, (select id from categories where name = "${newData.body.category}") );`, (err, results) => {
+    if (err) {console.log(err)}
+    cb('success')
+  });
 }
 
 module.exports = { getData, insertData }
