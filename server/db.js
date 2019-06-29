@@ -1,10 +1,6 @@
 const mysql = require('mysql');
 
-const db = mysql.createConnection({
-  user: 'root',
-  password: '',
-  database: 'expenses'
-});
+const db = mysql.createConnection(process.env.JAWSDB_URL);
 
 db.query(`create database expenses;
 use expenses;
