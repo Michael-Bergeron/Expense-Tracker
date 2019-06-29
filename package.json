@@ -8,9 +8,16 @@
     "start": "webpack -d --watch & live-server --port=3030 --watch=dist --open=dist",
     "start-oh": "webpack -d --watch"
   },
+  "keywords": [
+    "example",
+    "heroku"
+  ],
   "repository": {
     "type": "git",
     "url": ""
+  },
+  "engines": {
+    "node": "10.16"
   },
   "author": "",
   "license": "ISC",

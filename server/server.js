@@ -3,14 +3,16 @@ const parser = require('body-parser');
 const cors = require('cors');
 const db = require('./db')
 const app = express();
-const port = 3000;
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 8000;
+}
 
 app.use(parser.json());
 app.use(cors());
-
-app.use(express.static('../dist')); 
-
 app.listen(port, () => console.log(`listening on port ${port}`));
+
+app.use(express.static('dist')); 
 
 app.get('/expense', (req, res) => {
   db.getData((data) => res.send(data));
